@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-docker run -it --rm \
+docker run -t --rm \
        -v "$PWD":/w \
        -w /w \
        alpine \
