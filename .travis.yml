@@ -1,4 +1,5 @@
 language: erlang
+services: [docker]
 addons:
   apt:
     packages:
@@ -17,3 +18,11 @@ env:
 script:
   - make
   - make test
+  - |
+    git clean -xdff
+    export PROTOC=./test/protoc.sh
+    make
+    make test
+notifications:
+  email:
+    on_success: never
