@@ -2793,7 +2793,7 @@ cachingly_check(CacheKey, F) ->
 
 find_protoc_version() ->
     Output = os:cmd(find_protoc() ++ " --version"),
-    Words = gpb_lib:string_lexemes(Output, " \t\r\n"),
+    Words = gpb_lib:string_lexemes(Output, [$\s,$\t,"\r\n",$\r,$\n]),
     case find_protoc_version_aux(Words, Output) of
         {ok, _}=Res -> Res;
         {error, X}=Res ->
