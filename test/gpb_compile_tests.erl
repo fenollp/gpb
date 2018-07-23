@@ -2529,7 +2529,7 @@ compile_nif_msg_defs(M, MsgDefsOrIoList, TmpDir, Opts) ->
     Protoc = find_protoc(),
     CFlags = get_cflags(),
     LdFlags = get_ldflags(),
-    CompileProto = f("'~s' --proto_path '~s' --cpp_out='~s' '~s'",
+    CompileProto = f("'~s' --proto_path='~s' --cpp_out='~s' '~s'",
                      [Protoc, TmpDir, TmpDir, ProtoPath]),
     CompileNif = f("'~s' -g -fPIC -Wall -O0 '-I~s' ~s -c -o '~s' '~s'",
                    [CC, TmpDir, CFlags, NifOPath, NifCcPath]),

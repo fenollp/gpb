@@ -21,6 +21,8 @@ script:
   - |
     git clean -xdff
     export PROTOC=./test/protoc.sh
+    export TMPDIR=/tmp/gpb
+    mkdir -p $TMPDIR
     make
     make test
 notifications:
