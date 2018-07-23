@@ -4,4 +4,4 @@ docker run -t --rm \
        -v "$PWD":/w \
        -w /w \
        alpine \
-       /bin/sh -c 'apk update && apk upgrade && apk add protobuf && protoc '"$@"
+       /bin/sh -c '( apk update && apk upgrade && apk add protobuf ) >/dev/null && protoc '"$@"
